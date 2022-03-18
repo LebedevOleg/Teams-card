@@ -1,0 +1,23 @@
+.teams {
+  position: absolute;
+  left: 32.71%;
+  right: 58.19%;
+  top: 3.32%;
+  bottom: 93.07%;
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 30px;
+  line-height: 37px;
+  color: #1a1a32;
+}
+
+h1 {
+  font-family: Gilroy;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 37px;
+  letter-spacing: 0em;
+  text-align: left;
+}

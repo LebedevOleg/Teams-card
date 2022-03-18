@@ -1,0 +1,44 @@
+.tablePlace {
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 18px;
+
+  /* Новый черный */
+  color: #1a1a32;
+
+  position: absolute;
+  left: 402px;
+  top: 981px;
+}
+.employTable {
+  position: relative;
+}
+th {
+  width: 20%;
+  height: 30px;
+  background: #f1f1f1;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.inputForm {
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 700;
+
+  width: 99%;
+  border: 0;
+  outline: 0;
+  font-size: 1.3rem;
+  color: #1a1a32;
+  background: #fafafa;
+  transition: border-color 0.2s;
+}
+.inputForm::placeholder {
+  color: #bbbbbb;
+}
+.inputForm:placeholder-shown ~ .inputlabel {
+  font-size: 1.3rem;
+  cursor: text;
+}

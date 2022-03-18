@@ -1,0 +1,74 @@
+.personName {
+  position: absolute;
+  left: 28.6%;
+  right: 45.83%;
+  top: 2.83%;
+  bottom: 94.08%;
+
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 30px;
+  line-height: 37px;
+
+  /* Новый черный */
+  color: #1a1a32;
+}
+.cardHeadBlock {
+  position: absolute;
+  width: 1170px;
+  height: 40px;
+  left: 21%;
+  top: 93px;
+
+  background: #f1f1f1;
+  box-shadow: 10px 10px 20px rgba(26, 26, 50, 0.1);
+  border-radius: 74px;
+}
+.cardHeadText {
+  position: relative;
+
+  left: 2%;
+  right: 57.15%;
+  top: 20.5%;
+  bottom: 89.67%;
+
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+
+  color: #1a1a32;
+}
+.commentWorkPlace {
+  position: absolute;
+  top: 746px;
+  left: 690px;
+}
+.employmentHeadBlock {
+  position: relative;
+  width: 1170px;
+  height: 40px;
+  top: 150px;
+  left: -290px;
+  background: #f1f1f1;
+  box-shadow: 10px 10px 20px rgba(26, 26, 50, 0.1);
+  border-radius: 74px;
+}
+.employmentHeadText {
+  position: relative;
+
+  left: 2%;
+  right: 57.15%;
+  top: 20.5%;
+  bottom: 89.67%;
+
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+
+  color: #1a1a32;
+}

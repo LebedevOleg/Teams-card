@@ -1,0 +1,33 @@
+.team-list-header {
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  height: 30px;
+  width: 199px;
+  left: 87px;
+  top: 115px;
+  border-radius: 74px;
+  background: #ffffff;
+  box-shadow: 10px 10px 20px 0px #1a1a3230;
+  margin-bottom: 20px;
+}
+
+.personal_choose {
+  list-style-type: none;
+}
+.select-person {
+  width: 268px;
+  height: 35px;
+  left: 430px;
+  top: 175px;
+  margin-bottom: 1px;
+
+  background: #ffffff;
+  box-shadow: 2px 2px 3px rgba(26, 26, 50, 0.1);
+  border-radius: 5px;
+}
+.arrow {
+  float: right;
+}

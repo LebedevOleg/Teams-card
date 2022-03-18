@@ -1,0 +1,69 @@
+.personalInfoBlock {
+  position: absolute;
+  width: 670px;
+  height: 485px;
+  left: 690px;
+  top: 173px;
+
+  border: 1px solid #dadada;
+  box-sizing: border-box;
+  border-radius: 25px;
+}
+.inputPersonBllock {
+  margin: 5px;
+  position: relative;
+  top: 25%;
+  background: #fafafa;
+  box-shadow: 2px 2px 3px rgba(26, 26, 50, 0.1);
+  border-radius: 100px;
+}
+input[type="text"] {
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 18px;
+}
+input[type="date"] {
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 18px;
+}
+input[type="number"] {
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 18px;
+  -moz-appearance: textfield;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.inputblock {
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 18px;
+
+  /* Новый черный */
+  color: #1a1a32;
+  margin-left: 20px;
+}
+.saveButton {
+  background: #c6f221;
+  box-shadow: 2px 2px 3px rgba(26, 26, 50, 0.1);
+  border-radius: 74px;
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 11px;
+  color: #ffffff;
+}
