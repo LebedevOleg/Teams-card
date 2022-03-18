@@ -1,4 +1,5 @@
 .team-list-header {
+  position: relative;
   font-family: "Gilroy";
   font-style: normal;
   font-weight: 500;
@@ -14,16 +15,16 @@
 }
 
 .personal_choose {
+  position: relative;
   list-style-type: none;
+  top: 60px;
 }
 .select-person {
   position: relative;
   width: 268px;
   height: 35px;
   left: 27px;
-  top: 0px;
   margin-bottom: 10px;
-
   background: #ffffff;
   box-shadow: 2px 2px 3px rgba(26, 26, 50, 0.1);
   border-radius: 5px;
@@ -37,16 +38,19 @@
   height: 305px;
   left: 403px;
   top: 115px;
+  z-index: -100;
 }
 
 .team-list {
-  margin-top: 20px;
   position: relative;
+  top: -40px;
+  height: 300px;
   background: #fafafa;
   box-shadow: 10px 10px 20px rgba(26, 26, 50, 0.07);
   border-radius: 0px 0px 10px 10px;
 }
 .team-list-header-selected {
+  position: relative;
   color: #ffffff;
   font-family: "Gilroy";
   font-style: normal;
@@ -62,4 +66,5 @@
   box-sizing: border-box;
   box-shadow: 10px 10px 20px rgba(26, 26, 50, 0.19);
   border-radius: 74px;
+  z-index: 1;
 }

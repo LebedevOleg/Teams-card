@@ -1,6 +1,7 @@
 import React from "react";
 import "./work-time.css";
 import pounds from "./pounds.png";
+import status from "./status.png";
 
 const Work_time = () => {
   return (
@@ -31,7 +32,12 @@ const Work_time = () => {
             <input class="inputForm" placeholder="Введите текст..."></input>
           </td>
           <td>
-            <input class="inputForm" placeholder="Введите текст..."></input>
+            <select className="select">
+              <option value="0">Нейтральный статус</option>
+              <option value="1">В работе</option>
+              <option value="2">Завершена</option>
+              <option value="3">Отменена</option>
+            </select>
           </td>
           <td>
             <input
@@ -41,7 +47,7 @@ const Work_time = () => {
             ></input>
           </td>
           <td>
-            <input></input>{" "}
+            <img className="neutralStatus" src={status}></img>
           </td>
         </tr>
       </table>

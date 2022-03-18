@@ -1,4 +1,5 @@
 import React from "react";
+import Avatar from "./components/avatar/avatar";
 import Back_button from "./components/back-button/back-button";
 import Comment from "./components/comment/comment";
 import Person_card from "./components/person-card/person-card";
@@ -14,6 +15,7 @@ const Person_page = () => {
       <div className="cardHeadBlock">
         <text className="cardHeadText">Карточка сотрудника</text>
       </div>
+      <Avatar />
       <Person_card />
       <div className="commentWorkPlace">
         <Comment />

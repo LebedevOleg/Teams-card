@@ -30,7 +30,7 @@ th {
   width: 99%;
   border: 0;
   outline: 0;
-  font-size: 1.3rem;
+  font-size: 13px;
   color: #1a1a32;
   background: #fafafa;
   transition: border-color 0.2s;
@@ -39,6 +39,22 @@ th {
   color: #bbbbbb;
 }
 .inputForm:placeholder-shown ~ .inputlabel {
-  font-size: 1.3rem;
+  font-size: 13px;
   cursor: text;
+}
+.neutralStatus {
+  position: relative;
+  margin-left: 36%;
+}
+.select {
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 700;
+  width: 99%;
+  border: 0;
+  outline: 0;
+  font-size: 13px;
+  background: #1a1a32;
+  background: #fafafa;
+  transition: border-color 0.2s;
 }
