@@ -5,7 +5,12 @@ import "./back-button.css";
 const Back_button = () => {
   return (
     <>
-      <button className="back-button">
+      <button
+        onClick={() => {
+          window.history.back();
+        }}
+        className="back-button"
+      >
         <img
           src={back_arrow}
           style={{

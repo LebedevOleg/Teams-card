@@ -1,15 +1,15 @@
 .teams {
-  position: absolute;
-  left: 32.71%;
-  right: 58.19%;
-  top: 3.32%;
-  bottom: 93.07%;
+  position: relative;
   font-family: "Gilroy";
   font-style: normal;
   font-weight: 900;
   font-size: 30px;
   line-height: 37px;
   color: #1a1a32;
+}
+.teamPage {
+  position: absolute;
+  left: 403px;
 }
 
 h1 {
@@ -20,4 +20,24 @@ h1 {
   line-height: 37px;
   letter-spacing: 0em;
   text-align: left;
+}
+.team-add-button {
+  position: absolute;
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  position: relative;
+  width: 268px;
+  height: 35px;
+  left: 200px;
+  top: -55px;
+  background: #ffffff;
+  box-shadow: 2px 2px 3px rgba(26, 26, 50, 0.1);
+  border-radius: 5px;
+}
+.team-add-button:hover {
+  background: linear-gradient(116.85deg, #c6f221 0%, #99b3ff 121.5%);
+  color: #ffffff;
 }

@@ -1,0 +1,24 @@
+.personal_choose {
+  position: relative;
+  list-style-type: none;
+}
+
+.select-person {
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  position: relative;
+  width: 268px;
+  height: 35px;
+  left: 27px;
+  margin-bottom: 10px;
+  background: #ffffff;
+  box-shadow: 2px 2px 3px rgba(26, 26, 50, 0.1);
+  border-radius: 5px;
+}
+.select-person:hover {
+  background: linear-gradient(116.85deg, #c6f221 0%, #99b3ff 121.5%);
+  color: #ffffff;
+}

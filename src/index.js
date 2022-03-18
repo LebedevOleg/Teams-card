@@ -13,7 +13,7 @@ ReactDOM.render(
     <Router>
       <Menu />
       <Route path="/teams" component={Teams} />
-      <Route path="/person" component={Person_page} />
+      <Route path="/person:id" component={Person_page} />
     </Router>
   </React.StrictMode>,
   document.getElementById("root")

@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import "./work-time.css";
 import pounds from "./pounds.png";
-import status from "./status.png";
+import statusImg from "./status.png";
 
 const Work_time = () => {
+  const [status, setStatus] = useState(0);
+
+  const ChangeStatusHandler = async (event) => {
+    setStatus(parseInt(event.target.value));
+  };
+
   return (
     <div className="tablePlace">
       <table className="employTable">
@@ -32,12 +38,7 @@ const Work_time = () => {
             <input class="inputForm" placeholder="Введите текст..."></input>
           </td>
           <td>
-            <select className="select">
-              <option value="0">Нейтральный статус</option>
-              <option value="1">В работе</option>
-              <option value="2">Завершена</option>
-              <option value="3">Отменена</option>
-            </select>
+            <input class="inputForm" placeholder="Введите текст..."></input>
           </td>
           <td>
             <input
@@ -47,7 +48,20 @@ const Work_time = () => {
             ></input>
           </td>
           <td>
-            <img className="neutralStatus" src={status}></img>
+            {status === 0 ? (
+              <img className="positiveStatus" src={statusImg}></img>
+            ) : status === 1 ? (
+              <img className="negativeStatus" src={statusImg}></img>
+            ) : status === 2 ? (
+              <img className="neutralStatus" src={statusImg}></img>
+            ) : (
+              <></>
+            )}
+            <select id="status" onChange={ChangeStatusHandler} defaultValue="0">
+              <option value="0">В работе</option>
+              <option value="1">Завершена</option>
+              <option value="2">Отменена</option>
+            </select>
           </td>
         </tr>
       </table>

@@ -17,7 +17,7 @@
 }
 th {
   width: 20%;
-  height: 30px;
+  height: 25px;
   background: #f1f1f1;
   border-radius: 10px 10px 0px 0px;
 }
@@ -26,7 +26,7 @@ th {
   font-family: "Gilroy";
   font-style: normal;
   font-weight: 700;
-
+  height: 30px;
   width: 99%;
   border: 0;
   outline: 0;
@@ -42,15 +42,33 @@ th {
   font-size: 13px;
   cursor: text;
 }
+.positiveStatus {
+  position: relative;
+  top: -5px;
+  margin-left: 35%;
+  margin-top: 0%;
+  margin-bottom: 0%;
+  background: green;
+}
+.negativeStatus {
+  position: relative;
+  top: -5px;
+  margin-left: 35%;
+  background: red;
+}
 .neutralStatus {
   position: relative;
-  margin-left: 36%;
+  top: -5px;
+  margin-left: 35%;
+  margin-top: 0%;
+  margin-bottom: 0%;
+  background: yellow;
 }
-.select {
+select#status {
   font-family: "Gilroy";
   font-style: normal;
   font-weight: 700;
-  width: 99%;
+  width: 98%;
   border: 0;
   outline: 0;
   font-size: 13px;

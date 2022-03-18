@@ -1,17 +1,27 @@
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import "./menu.css";
 import logo from "./logo.png";
 import pending from "./outline_pending_black_24dp.png";
 import { Link } from "react-router-dom";
 
 const Menu = () => {
+  const checkPerson = useCallback(() => {
+    if (window.location.pathname.split(":")[0] === "/person") {
+      return true;
+    } else {
+      return false;
+    }
+  }, []);
+  useEffect(() => {
+    checkPerson();
+  }, [checkPerson]);
   return (
     <>
       <div className="menu">
         <img className="logo" src={logo} />
         <img className="pending" src={pending} />{" "}
         <ul className="menu-list">
-          <li className="menu_choose">
+          <li className="menu_choose_off">
             <button
               className="menu-button"
               onClick={() => {
@@ -21,7 +31,7 @@ const Menu = () => {
               Главная
             </button>
           </li>
-          <li className="menu_choose">
+          <li className="menu_choose_off">
             <button
               className="menu-button"
               onClick={() => {
@@ -31,7 +41,7 @@ const Menu = () => {
               Мои задачи
             </button>
           </li>
-          <li className="menu_choose">
+          <li className="menu_choose_off">
             <button
               className="menu-button"
               onClick={() => {
@@ -41,8 +51,8 @@ const Menu = () => {
               История изменений
             </button>
           </li>
-          <li className="menu_choose">
-            {window.location.pathname === "/teams" ? (
+          {window.location.pathname === "/teams" ? (
+            <li className="menu_choose_on">
               <button
                 className="menu-button-selected"
                 onClick={() => {
@@ -51,7 +61,9 @@ const Menu = () => {
               >
                 Команды
               </button>
-            ) : (
+            </li>
+          ) : (
+            <li className="menu_choose_off">
               <button
                 className="menu-button"
                 onClick={() => {
@@ -60,10 +72,10 @@ const Menu = () => {
               >
                 Команды
               </button>
-            )}
-          </li>
-          <li className="menu_choose">
-            {window.location.pathname == "/person" ? (
+            </li>
+          )}
+          {checkPerson() ? (
+            <li className="menu_choose_on">
               <button
                 className="menu-button-selected"
                 onClick={() => {
@@ -72,7 +84,9 @@ const Menu = () => {
               >
                 Настройки
               </button>
-            ) : (
+            </li>
+          ) : (
+            <li className="menu_choose_off">
               <button
                 className="menu-button"
                 onClick={() => {
@@ -81,8 +95,8 @@ const Menu = () => {
               >
                 Настройки
               </button>
-            )}
-          </li>
+            </li>
+          )}
         </ul>
       </div>
     </>
