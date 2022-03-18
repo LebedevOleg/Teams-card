@@ -4,25 +4,25 @@
   font-weight: 500;
   font-size: 15px;
   line-height: 18px;
-  height: 30px;
-  width: 199px;
-  left: 87px;
-  top: 115px;
+  height: 40px;
+  width: 322px;
+  left: 0px;
+  top: 0px;
   border-radius: 74px;
   background: #ffffff;
   box-shadow: 10px 10px 20px 0px #1a1a3230;
-  margin-bottom: 20px;
 }
 
 .personal_choose {
   list-style-type: none;
 }
 .select-person {
+  position: relative;
   width: 268px;
   height: 35px;
-  left: 430px;
-  top: 175px;
-  margin-bottom: 1px;
+  left: 27px;
+  top: 0px;
+  margin-bottom: 10px;
 
   background: #ffffff;
   box-shadow: 2px 2px 3px rgba(26, 26, 50, 0.1);
@@ -30,4 +30,36 @@
 }
 .arrow {
   float: right;
+}
+.team-list-block {
+  position: absolute;
+  width: 322px;
+  height: 305px;
+  left: 403px;
+  top: 115px;
+}
+
+.team-list {
+  margin-top: 20px;
+  position: relative;
+  background: #fafafa;
+  box-shadow: 10px 10px 20px rgba(26, 26, 50, 0.07);
+  border-radius: 0px 0px 10px 10px;
+}
+.team-list-header-selected {
+  color: #ffffff;
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  height: 40px;
+  width: 322px;
+  left: 0px;
+  top: 0px;
+  background: linear-gradient(116.85deg, #99b3ff 0%, #c6f221 121.5%);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  box-sizing: border-box;
+  box-shadow: 10px 10px 20px rgba(26, 26, 50, 0.19);
+  border-radius: 74px;
 }

@@ -42,14 +42,25 @@ const Menu = () => {
             </button>
           </li>
           <li className="menu_choose">
-            <button
-              className="menu-button"
-              onClick={() => {
-                window.location.href = "/teams";
-              }}
-            >
-              Команды
-            </button>
+            {window.location.pathname === "/teams" ? (
+              <button
+                className="menu-button-selected"
+                onClick={() => {
+                  window.location.href = "/teams";
+                }}
+              >
+                Команды
+              </button>
+            ) : (
+              <button
+                className="menu-button"
+                onClick={() => {
+                  window.location.href = "/teams";
+                }}
+              >
+                Команды
+              </button>
+            )}
           </li>
           <li className="menu_choose">
             <button
