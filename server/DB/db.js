@@ -69,3 +69,9 @@ let id = 3;
 module.exports.id = id;
 module.exports.team1 = team1;
 module.exports.team2 = team2;
+
+let comments = [];
+module.exports.comments = comments;
+
+let workTime = [];
+module.exports.workTime = workTime;

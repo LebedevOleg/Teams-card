@@ -16,6 +16,7 @@ const Teams = () => {
       console.log(e);
     }
   }, []);
+
   useEffect(() => {
     getTeams();
   }, [getTeams]);

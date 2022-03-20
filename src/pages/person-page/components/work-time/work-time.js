@@ -2,12 +2,30 @@ import React, { useState } from "react";
 import "./work-time.css";
 import pounds from "./pounds.png";
 import statusImg from "./status.png";
+import axios from "axios";
 
 const Work_time = () => {
   const [status, setStatus] = useState(0);
+  const [workID, setWorkID] = useState(1);
+  const [formWork, setFormWork] = useState({
+    id: window.location.pathname.split(":")[1],
+    workID: "",
+    client: "",
+    project: "",
+    stage: "",
+    deadline: "",
+    status: "0",
+  });
 
   const ChangeStatusHandler = async (event) => {
     setStatus(parseInt(event.target.value));
+    changeWorkTimeHandler(event);
+  };
+
+  const changeWorkTimeHandler = (event) => {
+    setFormWork({ ...formWork, [event.target.name]: event.target.value });
+    setFormWork({ ...formWork, workID: event.target.id });
+    axios.post(" /api/person/addWorkTime", { ...formWork });
   };
 
   return (
@@ -32,18 +50,39 @@ const Work_time = () => {
         </tr>
         <tr>
           <td>
-            <input class="inputForm" placeholder="Введите текст..."></input>
+            <input
+              class="inputForm"
+              name="client"
+              id="1"
+              placeholder="Введите текст..."
+              onChange={changeWorkTimeHandler}
+            ></input>
           </td>
           <td>
-            <input class="inputForm" placeholder="Введите текст..."></input>
+            <input
+              class="inputForm"
+              name="project"
+              id="1"
+              placeholder="Введите текст..."
+              onChange={changeWorkTimeHandler}
+            ></input>
           </td>
           <td>
-            <input class="inputForm" placeholder="Введите текст..."></input>
+            <input
+              class="inputForm"
+              name="stage"
+              placeholder="Введите текст..."
+              id="1"
+              onChange={changeWorkTimeHandler}
+            ></input>
           </td>
           <td>
             <input
               class="inputForm"
               type="datetime-local"
+              name="deadline"
+              id="1"
+              onChange={changeWorkTimeHandler}
               style={{ textAlign: "center" }}
             ></input>
           </td>
@@ -57,7 +96,13 @@ const Work_time = () => {
             ) : (
               <></>
             )}
-            <select id="status" onChange={ChangeStatusHandler} defaultValue="0">
+            <select
+              id="status"
+              name="status"
+              onChange={ChangeStatusHandler}
+              defaultValue="0"
+              id="1"
+            >
               <option value="0">В работе</option>
               <option value="1">Завершена</option>
               <option value="2">Отменена</option>

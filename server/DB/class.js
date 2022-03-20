@@ -36,3 +36,22 @@ module.exports.Teams = class Teams {
     this.team = team;
   }
 };
+
+module.exports.Comment = class Comment {
+  constructor(id, text) {
+    this.id = id;
+    this.text = text;
+  }
+};
+
+module.exports.WorkTime = class WorkTime {
+  constructor(id, workID, client, project, stage, deadline, status) {
+    this.id = id;
+    this.workID = workID;
+    this.client = client;
+    this.project = project;
+    this.stage = stage;
+    this.deadline = deadline;
+    this.status = status;
+  }
+};
