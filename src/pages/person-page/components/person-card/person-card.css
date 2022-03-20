@@ -39,6 +39,22 @@ input[type="number"] {
   line-height: 18px;
   -moz-appearance: textfield;
 }
+input[type="email"] {
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 18px;
+  -moz-appearance: textfield;
+}
+input[type="tel"] {
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 18px;
+  -moz-appearance: textfield;
+}
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;

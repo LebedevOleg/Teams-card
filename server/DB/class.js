@@ -1,18 +1,20 @@
-module.exports = class Person {
+module.exports.Person = class Person {
   constructor(
+    id,
     FIO,
-    date,
-    citizen,
-    adress,
-    leader,
-    role,
-    phone,
-    selfEmail,
+    date = "",
+    citizen = "",
+    adress = "",
+    leader = "",
+    role = "",
+    phone = "",
+    selfEmail = "",
     workEmail = "",
-    dateStartJob,
-    salary,
-    registr
+    dateStartJob = "",
+    salary = "",
+    registr = ""
   ) {
+    this.id = id;
     this.FIO = FIO;
     this.date = date;
     this.citizen = citizen;
@@ -28,9 +30,9 @@ module.exports = class Person {
   }
 };
 
-module.exports = class Teams {
+module.exports.Teams = class Teams {
   constructor(leaderName, team) {
     this.leaderName = leaderName;
-    this.Team = team;
+    this.team = team;
   }
 };

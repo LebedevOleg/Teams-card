@@ -8,10 +8,11 @@ const SimplePerson = (data) => {
       <button
         className="select-person"
         onClick={() => {
-          window.location.href = "/person:" + data.ID;
+          window.location.href = "/person:" + data.id;
         }}
       >
-        {data.FIO} <img src={arrow} className="arrow" />
+        {data.FIO.split(" ")[0]} {data.FIO.split(" ")[1]}
+        <img src={arrow} className="arrow" />
       </button>
     </li>
   );

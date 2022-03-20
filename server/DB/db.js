@@ -1,6 +1,6 @@
-const Person = require("./class");
-const Teams = require("./class");
-let person1 = new Person(
+const Clases = require("./class");
+let person1 = new Clases.Person(
+  "0",
   "Фамилия Имя Отчество",
   "21.05.2000",
   "Россия",
@@ -14,7 +14,8 @@ let person1 = new Person(
   "10000",
   "Полная ставка"
 );
-let person2 = new Person(
+let person2 = new Clases.Person(
+  "1",
   "Фамилия Имя Отчество",
   "22.01.1999",
   "Россия",
@@ -28,7 +29,8 @@ let person2 = new Person(
   "10000",
   "Полная ставка"
 );
-let person3 = new Person(
+let person3 = new Clases.Person(
+  "2",
   "Фамилия Имя Отчество",
   "10.11.1982",
   "Россия",
@@ -42,7 +44,8 @@ let person3 = new Person(
   "10000",
   "Стажировка"
 );
-let person4 = new Person(
+let person4 = new Clases.Person(
+  "3",
   "Фамилия Имя Отчество",
   "21.05.2000",
   "Россия",
@@ -58,7 +61,11 @@ let person4 = new Person(
 );
 let group1 = [person1, person3, person4];
 let group2 = [person2, person3];
-let team1 = new Teams("Наталья Светличная", group1);
-let team2 = new Teams("Ярослав Жуков", group2);
-module.exports = team1;
-module.exports = team2;
+let allPerson = [person1, person2, person3, person4];
+module.exports.allPerson = allPerson;
+let team1 = new Clases.Teams("Наталья Светличная", group1);
+let team2 = new Clases.Teams("Ярослав Жуков", group2);
+let id = 3;
+module.exports.id = id;
+module.exports.team1 = team1;
+module.exports.team2 = team2;

@@ -8,8 +8,9 @@ const Teams = () => {
 
   const getTeams = useCallback(async () => {
     try {
-      await axios.get("/api/teams/getTeams").then(async (res) => {
-        console.log(res);
+      await axios.get("/api/teams/getTeamLeader").then((res) => {
+        console.log(res.data);
+        setTeams(res.data);
       });
     } catch (e) {
       console.log(e);
@@ -24,7 +25,9 @@ const Teams = () => {
       <button className="team-add-button"> Добавить Команду </button>
       <div>
         <div>
-          <Team_list />
+          {teams.map((team) => (
+            <Team_list leaderName={team.leaderName} />
+          ))}
         </div>
       </div>
     </div>
