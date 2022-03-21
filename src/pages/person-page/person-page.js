@@ -16,7 +16,6 @@ const Person_page = () => {
         id: window.location.pathname.split(":")[1],
       })
       .then((res) => {
-        console.log(res);
         setPerson(res.data);
       });
   }, []);

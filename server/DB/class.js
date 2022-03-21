@@ -45,7 +45,15 @@ module.exports.Comment = class Comment {
 };
 
 module.exports.WorkTime = class WorkTime {
-  constructor(id, workID, client, project, stage, deadline, status) {
+  constructor(
+    id,
+    workID,
+    client = "",
+    project = "",
+    stage = "",
+    deadline = "",
+    status = ""
+  ) {
     this.id = id;
     this.workID = workID;
     this.client = client;

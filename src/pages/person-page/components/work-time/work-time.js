@@ -1,32 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import "./work-time.css";
 import pounds from "./pounds.png";
 import statusImg from "./status.png";
 import axios from "axios";
+import WorkTimeCard from "../work-time-card/work-time-card";
+import { render } from "@testing-library/react";
 
 const Work_time = () => {
-  const [status, setStatus] = useState(0);
-  const [workID, setWorkID] = useState(1);
-  const [formWork, setFormWork] = useState({
-    id: window.location.pathname.split(":")[1],
-    workID: "",
-    client: "",
-    project: "",
-    stage: "",
-    deadline: "",
-    status: "0",
-  });
+  const [workTimeCards, setWorkTimeCards] = useState([]);
+  const [load, setLoad] = useState(true);
 
-  const ChangeStatusHandler = async (event) => {
-    setStatus(parseInt(event.target.value));
-    changeWorkTimeHandler(event);
-  };
+  const getWorkTime = useCallback(async () => {
+    console.log("here");
+    await axios
+      .post("/api/person/getWorkTime", {
+        id: window.location.pathname.split(":")[1],
+      })
+      .then((res) => {
+        setWorkTimeCards(res.data);
+        setLoad(false);
+      });
+  }, []);
 
-  const changeWorkTimeHandler = (event) => {
-    setFormWork({ ...formWork, [event.target.name]: event.target.value });
-    setFormWork({ ...formWork, workID: event.target.id });
-    axios.post(" /api/person/addWorkTime", { ...formWork });
-  };
+  useEffect(() => {
+    getWorkTime();
+  }, [getWorkTime]);
+  console.log(load);
 
   return (
     <div className="tablePlace">
@@ -48,67 +47,18 @@ const Work_time = () => {
             Статус <img src={pounds} style={{ margin: "3px" }} />
           </th>
         </tr>
-        <tr>
-          <td>
-            <input
-              class="inputForm"
-              name="client"
-              id="1"
-              placeholder="Введите текст..."
-              onChange={changeWorkTimeHandler}
-            ></input>
-          </td>
-          <td>
-            <input
-              class="inputForm"
-              name="project"
-              id="1"
-              placeholder="Введите текст..."
-              onChange={changeWorkTimeHandler}
-            ></input>
-          </td>
-          <td>
-            <input
-              class="inputForm"
-              name="stage"
-              placeholder="Введите текст..."
-              id="1"
-              onChange={changeWorkTimeHandler}
-            ></input>
-          </td>
-          <td>
-            <input
-              class="inputForm"
-              type="datetime-local"
-              name="deadline"
-              id="1"
-              onChange={changeWorkTimeHandler}
-              style={{ textAlign: "center" }}
-            ></input>
-          </td>
-          <td>
-            {status === 0 ? (
-              <img className="positiveStatus" src={statusImg}></img>
-            ) : status === 1 ? (
-              <img className="negativeStatus" src={statusImg}></img>
-            ) : status === 2 ? (
-              <img className="neutralStatus" src={statusImg}></img>
-            ) : (
-              <></>
-            )}
-            <select
-              id="status"
-              name="status"
-              onChange={ChangeStatusHandler}
-              defaultValue="0"
-              id="1"
-            >
-              <option value="0">В работе</option>
-              <option value="1">Завершена</option>
-              <option value="2">Отменена</option>
-            </select>
-          </td>
-        </tr>
+        {workTimeCards.length === 0 ? (
+          <WorkTimeCard id="1" />
+        ) : (
+          workTimeCards.map((card) => (
+            <WorkTimeCard
+              props={card}
+              id={() => {
+                workTimeCards.findIndex(card);
+              }}
+            />
+          ))
+        )}
       </table>
     </div>
   );

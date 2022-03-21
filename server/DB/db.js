@@ -70,6 +70,9 @@ module.exports.id = id;
 module.exports.team1 = team1;
 module.exports.team2 = team2;
 
+let teamsArray = [team1, team2];
+module.exports.teamsArray = teamsArray;
+
 let comments = [];
 module.exports.comments = comments;
 

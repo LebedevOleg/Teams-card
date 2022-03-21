@@ -64,7 +64,7 @@ th {
   margin-bottom: 0%;
   background: yellow;
 }
-select#status {
+select.status {
   font-family: "Gilroy";
   font-style: normal;
   font-weight: 700;

@@ -56,7 +56,6 @@ router.post("/addComment", async (req, res) => {
 
 router.post("/addWorkTime", async (req, res) => {
   let check = true;
-  console.log(req.body);
   personDB.workTime.map((worktime) => {
     if (worktime.id == req.body.id) {
       if (worktime.workID == req.body.workID) {
@@ -82,9 +81,19 @@ router.post("/addWorkTime", async (req, res) => {
       req.body.status
     );
     personDB.workTime.push(newworktime);
-    console.log(newworktime);
     return res.status(201).json(personDB.workTime);
   }
+});
+
+router.post("/getWorkTime", async (req, res) => {
+  let workTimeArr = [];
+  console.log(personDB.workTime);
+  personDB.workTime.map((worktime) => {
+    if (worktime.id == req.body.id) {
+      workTimeArr.push(worktime);
+    }
+  });
+  return res.status(201).json(workTimeArr);
 });
 
 module.exports = router;

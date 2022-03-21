@@ -5,39 +5,39 @@ const clases = require("../DB/class");
 const router = new Router();
 // ! api/teams/getTeams
 router.get("/getTeamLeader", async (req, res) => {
-  const teamsInfo = [
-    { leaderName: teams.team1.leaderName },
-    { leaderName: teams.team2.leaderName },
-  ];
+  const teamsInfo = [];
+  teams.teamsArray.map((team) => {
+    teamsInfo.push({ leaderName: team.leaderName });
+  });
+
   //console.log(teams.team1);
   return res.status(201).json(teamsInfo);
 });
 
 router.post("/getTeams", async (req, res) => {
-  switch (req.body.leaderName) {
-    case "Наталья Светличная":
-      return res.status(201).json(teams.team1.team);
-      console.log(teams.team1.team);
-      break;
-    case "Ярослав Жуков":
-      return res.status(201).json(teams.team2.team);
-      break;
-  }
+  teams.teamsArray.map((team) => {
+    if (req.body.leaderName === team.leaderName) {
+      return res.status(201).json(team.team);
+    }
+  });
 });
 
 router.post("/addNewPerson", async (req, res) => {
   teams.id++;
   let newPerson = new clases.Person(teams.id.toString(), req.body.person.FIO);
-  switch (req.body.leaderName) {
-    case "Наталья Светличная":
-      teams.team1.team.push(newPerson);
-      console.log(teams.team1.team);
-      break;
-    case "Ярослав Жуков":
-      teams.team2.team.push(newPerson);
-      break;
-  }
+  teams.teamsArray.map((team) => {
+    if (req.body.leaderName === team.leaderName) {
+      team.team.push(newPerson);
+      teams.allPerson.push(newPerson);
+    }
+  });
   return res.status(201).json("correct add");
+});
+
+router.post("/addTeam", async (req, res) => {
+  let newTeam = new clases.Teams(req.body.leaderName, []);
+  teams.teamsArray.push(newTeam);
+  return res.status(201).json("correct");
 });
 
 module.exports = router;

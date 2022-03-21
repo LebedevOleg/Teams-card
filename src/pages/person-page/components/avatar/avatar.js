@@ -3,18 +3,23 @@ import "./avatar.css";
 
 const Avatar = () => {
   const setAvatarhandler = async (event) => {
-    let input = document.getElementById("file-upload");
-    if (input.files && input.files[0]) {
-      console.log("here");
-      let reader = new FileReader();
-      reader.onload = (e) => {
-        document.getElementById("profile-pic").removeAttribute("src");
-        document
-          .getElementById("profile-pic")
-          .setAttribute("src", e.target.result);
-      };
-      reader.readAsDataURL(input.files[0]);
-    }
+    const reader = new FileReader();
+    let res = "";
+
+    reader.addEventListener(
+      "load",
+      async function () {
+        try {
+          console.log("here");
+          res = reader.result;
+          document
+            .getElementById("profile-pic")
+            .setAttribute("src", reader.result);
+        } catch (e) {}
+        res = reader.result;
+      },
+      false
+    );
   };
 
   return (

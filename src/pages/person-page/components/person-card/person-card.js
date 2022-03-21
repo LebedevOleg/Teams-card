@@ -25,9 +25,7 @@ const Person_card = (data) => {
   const savePersonData = async () => {
     await axios
       .post("/api/person/savePersonData", { ...formPersData })
-      .then((res) => {
-        console.log(res.data);
-      });
+      .then((res) => {});
   };
 
   if (data.info.date === undefined) {

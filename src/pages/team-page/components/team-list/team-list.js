@@ -7,13 +7,11 @@ import axios from "axios";
 const Team_list = (data) => {
   const [state, setState] = useState(false);
   const [team, setTeam] = useState([]);
-  console.log(data);
   const getTeams = useCallback(async () => {
     try {
       await axios
         .post("/api/teams/getTeams", { leaderName: data.leaderName })
         .then((res) => {
-          console.log(res.data);
           setTeam(res.data);
         });
     } catch (e) {
@@ -31,16 +29,7 @@ const Team_list = (data) => {
         leaderName: data.leaderName,
         person: newPerson,
       })
-      .then(async (res) => {
-        //#region add element on html
-        let teamList = document.getElementById("NP");
-        let newPers = document.createElement("li");
-        newPers.className = "personal_choose";
-        newPers.innerHTML = `<button class="select-person" onClick='window.location.href = "/person:"'>Новый сотрудник <img src=${arrow} class="arrow" /></button>`;
-        let parent = document.getElementById("TL");
-        parent.insertBefore(newPers, teamList);
-        //#endregion
-      });
+      .then(async (res) => {});
     getTeams();
   };
   const ChangeSetHandler = () => {
