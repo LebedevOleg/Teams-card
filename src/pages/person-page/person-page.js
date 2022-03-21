@@ -21,6 +21,10 @@ const Person_page = () => {
   }, []);
   useEffect(() => {
     takePersonInfo();
+    localStorage.setItem(
+      "lastUser",
+      JSON.stringify({ link: window.location.pathname })
+    );
   }, [takePersonInfo]);
   return (
     <>

@@ -79,7 +79,12 @@ const Menu = () => {
               <button
                 className="menu-button-selected"
                 onClick={() => {
-                  window.location.href = "/";
+                  const data = JSON.parse(localStorage.getItem("lastUser"));
+                  if (data.link) {
+                    window.location.href = data.link;
+                  } else {
+                    window.location.href = "/";
+                  }
                 }}
               >
                 Настройки
@@ -90,7 +95,12 @@ const Menu = () => {
               <button
                 className="menu-button"
                 onClick={() => {
-                  window.location.href = "/";
+                  const data = JSON.parse(localStorage.getItem("lastUser"));
+                  if (data.link) {
+                    window.location.href = data.link;
+                  } else {
+                    window.location.href = "/";
+                  }
                 }}
               >
                 Настройки
