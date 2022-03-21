@@ -87,13 +87,40 @@ router.post("/addWorkTime", async (req, res) => {
 
 router.post("/getWorkTime", async (req, res) => {
   let workTimeArr = [];
-  console.log(personDB.workTime);
   personDB.workTime.map((worktime) => {
-    if (worktime.id == req.body.id) {
+    if (worktime.id === req.body.id) {
       workTimeArr.push(worktime);
     }
   });
   return res.status(201).json(workTimeArr);
 });
+// ! /api/person/addAvatars
+router.post("/addAvatars", async (req, res) => {
+  let check = true;
 
+  personDB.avatars.map((avatar) => {
+    if (avatar.id === req.body.id) {
+      avatar.avatar = req.body.avatar;
+      check = false;
+      return res.status(201);
+    }
+  });
+  if (check) {
+    let newAvatar = new classes.Avatar(req.body.id, req.body.avatar);
+    personDB.avatars.push(newAvatar);
+    return res.status(201);
+  }
+});
+router.post("/getAvatars", async (req, res) => {
+  let check = true;
+  personDB.avatars.map((avatar) => {
+    if (avatar.id === req.body.id) {
+      check = false;
+      return res.status(201).json(avatar);
+    }
+  });
+  if (check) {
+    return res.status(201).json("");
+  }
+});
 module.exports = router;

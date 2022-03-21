@@ -63,3 +63,10 @@ module.exports.WorkTime = class WorkTime {
     this.status = status;
   }
 };
+
+module.exports.Avatar = class Avatar {
+  constructor(id, avatar) {
+    this.id = id;
+    this.avatar = avatar;
+  }
+};

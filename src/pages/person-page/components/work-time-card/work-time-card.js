@@ -3,24 +3,19 @@ import axios from "axios";
 import statusImg from "../work-time/status.png";
 
 const WorkTimeCard = (data) => {
-  const [status, setStatus] = useState(0);
+  const [status, setStatus] = useState(
+    data.props != undefined ? data.props.status : 0
+  );
   const [client, setClient] = useState("");
   const [project, setProject] = useState("");
   const [stage, setStage] = useState("");
   const [deadline, setdeadline] = useState("");
-  if (data.props != undefined) {
-    setClient(data.props.client);
-    setStatus(data.props.status);
-    setProject(data.props.project);
-    setStage(data.props.stage);
-    setdeadline(data.props.deadline);
-  }
 
   const ChangeStatusHandler = async (event) => {
     setStatus(parseInt(event.target.value));
     changeWorkTimeHandler(event);
   };
-  const changeWorkTimeHandler = async (event) => {
+  const changeWorkTimeHandler = (event) => {
     switch (event.target.name) {
       case "client":
         setClient(event.target.value);
@@ -37,10 +32,10 @@ const WorkTimeCard = (data) => {
     }
   };
 
-  const saveInfo = (event) => {
+  const saveInfo = () => {
     let saveData = {
       id: window.location.pathname.split(":")[1],
-      workID: event.target.id,
+      workID: data.id,
       client: client,
       project: project,
       stage: stage,
@@ -57,20 +52,22 @@ const WorkTimeCard = (data) => {
         <input
           className="inputForm"
           name="client"
-          id="1"
+          id={data.id}
           placeholder="Введите текст..."
           onChange={changeWorkTimeHandler}
           onBlur={saveInfo}
+          defaultValue={data.props != undefined ? data.props.client : ""}
         ></input>
       </td>
       <td>
         <input
           className="inputForm"
           name="project"
-          id="1"
+          id={data.id}
           placeholder="Введите текст..."
           onChange={changeWorkTimeHandler}
           onBlur={saveInfo}
+          defaultValue={data.props != undefined ? data.props.project : ""}
         ></input>
       </td>
       <td>
@@ -78,9 +75,10 @@ const WorkTimeCard = (data) => {
           className="inputForm"
           name="stage"
           placeholder="Введите текст..."
-          id="1"
+          id={data.id}
           onChange={changeWorkTimeHandler}
           onBlur={saveInfo}
+          defaultValue={data.props != undefined ? data.props.stage : ""}
         ></input>
       </td>
       <td>
@@ -88,9 +86,10 @@ const WorkTimeCard = (data) => {
           className="inputForm"
           type="datetime-local"
           name="deadline"
-          id="1"
+          id={data.id}
           onChange={changeWorkTimeHandler}
           onBlur={saveInfo}
+          defaultValue={data.props != undefined ? data.props.deadline : ""}
           style={{ textAlign: "center" }}
         ></input>
       </td>
@@ -105,12 +104,13 @@ const WorkTimeCard = (data) => {
           <></>
         )}
         <select
-          id="1"
+          id={data.id}
           name="status"
           className="status"
           onChange={ChangeStatusHandler}
           onBlur={saveInfo}
-          defaultValue="0"
+          defaultValue={data.props != undefined ? data.props.status : ""}
+          onLoad={ChangeStatusHandler}
         >
           <option value="0">В работе</option>
           <option value="1">Завершена</option>

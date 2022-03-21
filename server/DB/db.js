@@ -78,3 +78,6 @@ module.exports.comments = comments;
 
 let workTime = [];
 module.exports.workTime = workTime;
+
+let avatars = [];
+module.exports.avatars = avatars;

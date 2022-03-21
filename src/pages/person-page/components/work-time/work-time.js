@@ -11,7 +11,6 @@ const Work_time = () => {
   const [load, setLoad] = useState(true);
 
   const getWorkTime = useCallback(async () => {
-    console.log("here");
     await axios
       .post("/api/person/getWorkTime", {
         id: window.location.pathname.split(":")[1],
@@ -25,40 +24,41 @@ const Work_time = () => {
   useEffect(() => {
     getWorkTime();
   }, [getWorkTime]);
-  console.log(load);
 
   return (
     <div className="tablePlace">
       <table className="employTable">
-        <tr>
-          <th>
-            Клиент <img src={pounds} style={{ margin: "3px" }} />
-          </th>
-          <th>
-            Проект <img src={pounds} style={{ margin: "3px" }} />
-          </th>
-          <th>
-            Этап <img src={pounds} style={{ margin: "3px" }} />
-          </th>
-          <th>
-            Дедлайн <img src={pounds} style={{ margin: "3px" }} />
-          </th>
-          <th>
-            Статус <img src={pounds} style={{ margin: "3px" }} />
-          </th>
-        </tr>
-        {workTimeCards.length === 0 ? (
-          <WorkTimeCard id="1" />
-        ) : (
-          workTimeCards.map((card) => (
-            <WorkTimeCard
-              props={card}
-              id={() => {
-                workTimeCards.findIndex(card);
-              }}
-            />
-          ))
-        )}
+        <tbody>
+          <tr>
+            <th>
+              Клиент <img src={pounds} style={{ margin: "3px" }} />
+            </th>
+            <th>
+              Проект <img src={pounds} style={{ margin: "3px" }} />
+            </th>
+            <th>
+              Этап <img src={pounds} style={{ margin: "3px" }} />
+            </th>
+            <th>
+              Дедлайн <img src={pounds} style={{ margin: "3px" }} />
+            </th>
+            <th>
+              Статус <img src={pounds} style={{ margin: "3px" }} />
+            </th>
+          </tr>
+          {workTimeCards.length === 0 ? (
+            <WorkTimeCard props={undefined} id="0" />
+          ) : (
+            workTimeCards.map((card, index) => (
+              <WorkTimeCard props={card} id={index.toString()} />
+            ))
+          )}
+          {workTimeCards.length === 0 ? (
+            <></>
+          ) : (
+            <WorkTimeCard id={workTimeCards.length.toString()} />
+          )}
+        </tbody>
       </table>
     </div>
   );
